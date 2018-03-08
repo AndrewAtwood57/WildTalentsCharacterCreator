@@ -1,0 +1,260 @@
+﻿
+<div class="row">
+    <div class="col-md-6">
+        <h2 class="text text-primary">Total XP in Characteristics : {{Char.SpentXP_Characteristics}}</h2>
+    </div>
+</div>
+<hr />
+
+<uib-accordion close-others="false">
+    <div uib-accordion-group class="panel-info" heading="Body" is-open="true">
+        <section id="Body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>{{Char.Body.SpentXP}} XP</h3>
+                    <hr />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <strong class="text text-success"> Regular Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Body.RegularDice" ng-change="UpdateBodyXP()" />
+                    <strong class="text text-warning">Hard Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Body.HardDice" ng-change="UpdateBodyXP()" />
+                    <strong class="text text-danger">Wiggle Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Body.WiggleDice" ng-change="UpdateBodyXP()" />
+                </div>
+                <div class="col-md-3">
+                    <strong class="text text-success"> Regular</strong><strong class="text text-primary"> Hyper Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Body.RegHyperDice" ng-change="UpdateBodyXP()" />
+                    <strong class="text text-warning">Hard</strong><strong class="text text-primary"> Hyper Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Body.HardHyperDice" ng-change="UpdateBodyXP()" />
+                    <strong class="text text-danger">Wiggle</strong><strong class="text text-primary"> Hyper Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Body.WiggleHyperDice" ng-change="UpdateBodyXP()" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <hr />
+                    <strong>Total Dice</strong><br />
+                    <strong style="font-size:16px">
+                        <span ng-show="Char.Body.RegularDice + Char.Body.RegHyperDice > 0" class="text text-success">{{Char.Body.RegularDice + Char.Body.RegHyperDice}} Regular Dice</span>
+                        <span ng-show="Char.Body.HardDice + Char.Body.HardHyperDice > 0" class="text text-warning">{{Char.Body.HardDice + Char.Body.HardHyperDice}} Hard Dice</span>
+                        <span ng-show="Char.Body.WiggleDice + Char.Body.WiggleHyperDice > 0" class="text text-danger">{{Char.Body.WiggleDice + Char.Body.WiggleHyperDice}} Wiggle Dice</span>
+                    </strong>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <br /><br />
+
+    <div uib-accordion-group class="panel-info" heading="Coordination" is-open="true">
+        <section id="Coordination">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>{{Char.Coordination.SpentXP}} XP</h3>
+                    <hr />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <strong class="text text-success"> Regular Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Coordination.RegularDice" ng-change="UpdateCoordinationXP()" />
+                    <strong class="text text-warning">Hard Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Coordination.HardDice" ng-change="UpdateCoordinationXP()" />
+                    <strong class="text text-danger">Wiggle Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Coordination.WiggleDice" ng-change="UpdateCoordinationXP()" />
+                </div>
+                <div class="col-md-3">
+                    <strong class="text text-success"> Regular</strong><strong class="text text-primary"> Hyper Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Coordination.RegHyperDice" ng-change="UpdateCoordinationXP()" />
+                    <strong class="text text-warning">Hard</strong><strong class="text text-primary"> Hyper Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Coordination.HardHyperDice" ng-change="UpdateCoordinationXP()" />
+                    <strong class="text text-danger">Wiggle</strong><strong class="text text-primary"> Hyper Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Coordination.WiggleHyperDice" ng-change="UpdateCoordinationXP()" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <hr />
+                    <strong>Total Dice</strong><br />
+                    <strong style="font-size:16px">
+                        <span ng-show="Char.Coordination.RegularDice + Char.Coordination.RegHyperDice > 0" class="text text-success">{{Char.Coordination.RegularDice + Char.Coordination.RegHyperDice}} Regular Dice</span>
+                        <span ng-show="Char.Coordination.HardDice + Char.Coordination.HardHyperDice > 0" class="text text-warning">{{Char.Coordination.HardDice + Char.Coordination.HardHyperDice}} Hard Dice</span>
+                        <span ng-show="Char.Coordination.WiggleDice + Char.Coordination.WiggleHyperDice > 0" class="text text-danger">{{Char.Coordination.WiggleDice + Char.Coordination.WiggleHyperDice}} Wiggle Dice</span>
+                    </strong>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <br /><br />
+
+    <div uib-accordion-group class="panel-info" heading="Sense" is-open="true">
+        <section id="Sense">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>{{Char.Sense.SpentXP}} XP</h3>
+                    <hr />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <strong class="text text-success"> Regular Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Sense.RegularDice" ng-change="UpdateSenseXP()" />
+                    <strong class="text text-warning">Hard Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Sense.HardDice" ng-change="UpdateSenseXP()" />
+                    <strong class="text text-danger">Wiggle Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Sense.WiggleDice" ng-change="UpdateSenseXP()" />
+                </div>
+                <div class="col-md-3">
+                    <strong class="text text-success"> Regular</strong><strong class="text text-primary"> Hyper Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Sense.RegHyperDice" ng-change="UpdateSenseXP()" />
+                    <strong class="text text-warning">Hard</strong><strong class="text text-primary"> Hyper Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Sense.HardHyperDice" ng-change="UpdateSenseXP()" />
+                    <strong class="text text-danger">Wiggle</strong><strong class="text text-primary"> Hyper Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Sense.WiggleHyperDice" ng-change="UpdateSenseXP()" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <hr />
+                    <strong>Total Dice</strong><br />
+                    <strong style="font-size:16px">
+                        <span ng-show="Char.Sense.RegularDice + Char.Sense.RegHyperDice > 0" class="text text-success">{{Char.Sense.RegularDice + Char.Sense.RegHyperDice}} Regular Dice</span>
+                        <span ng-show="Char.Sense.HardDice + Char.Sense.HardHyperDice > 0" class="text text-warning">{{Char.Sense.HardDice + Char.Sense.HardHyperDice}} Hard Dice</span>
+                        <span ng-show="Char.Sense.WiggleDice + Char.Sense.WiggleHyperDice > 0" class="text text-danger">{{Char.Sense.WiggleDice + Char.Sense.WiggleHyperDice}} Wiggle Dice</span>
+                    </strong>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <br /><br />
+
+    <div uib-accordion-group class="panel-info" heading="Mind" is-open="true">
+        <section id="Mind">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>{{Char.Mind.SpentXP}} XP</h3>
+                    <hr />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <strong class="text text-success"> Regular Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Mind.RegularDice" ng-change="UpdateMindXP()" />
+                    <strong class="text text-warning">Hard Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Mind.HardDice" ng-change="UpdateMindXP()" />
+                    <strong class="text text-danger">Wiggle Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Mind.WiggleDice" ng-change="UpdateMindXP()" />
+                </div>
+                <div class="col-md-3">
+                    <strong class="text text-success"> Regular</strong><strong class="text text-primary"> Hyper Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Mind.RegHyperDice" ng-change="UpdateMindXP()" />
+                    <strong class="text text-warning">Hard</strong><strong class="text text-primary"> Hyper Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Mind.HardHyperDice" ng-change="UpdateMindXP()" />
+                    <strong class="text text-danger">Wiggle</strong><strong class="text text-primary"> Hyper Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Mind.WiggleHyperDice" ng-change="UpdateMindXP()" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <hr />
+                    <strong>Total Dice</strong><br />
+                    <strong style="font-size:16px">
+                        <span ng-show="Char.Mind.RegularDice + Char.Mind.RegHyperDice > 0" class="text text-success">{{Char.Mind.RegularDice + Char.Mind.RegHyperDice}} Regular Dice</span>
+                        <span ng-show="Char.Mind.HardDice + Char.Mind.HardHyperDice > 0" class="text text-warning">{{Char.Mind.HardDice + Char.Mind.HardHyperDice}} Hard Dice</span>
+                        <span ng-show="Char.Mind.WiggleDice + Char.Mind.WiggleHyperDice > 0" class="text text-danger">{{Char.Mind.WiggleDice + Char.Mind.WiggleHyperDice}} Wiggle Dice</span>
+                    </strong>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <br /><br />
+
+    <div uib-accordion-group class="panel-info" heading="Charm" is-open="true">
+        <section id="Charm">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>{{Char.Charm.SpentXP}} XP</h3>
+                    <hr />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <strong class="text text-success"> Regular Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Charm.RegularDice" ng-change="UpdateCharmXP()" />
+                    <strong class="text text-warning">Hard Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Charm.HardDice" ng-change="UpdateCharmXP()" />
+                    <strong class="text text-danger">Wiggle Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Charm.WiggleDice" ng-change="UpdateCharmXP()" />
+                </div>
+                <div class="col-md-3">
+                    <strong class="text text-success"> Regular</strong><strong class="text text-primary"> Hyper Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Charm.RegHyperDice" ng-change="UpdateCharmXP()" />
+                    <strong class="text text-warning">Hard</strong><strong class="text text-primary"> Hyper Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Charm.HardHyperDice" ng-change="UpdateCharmXP()" />
+                    <strong class="text text-danger">Wiggle</strong><strong class="text text-primary"> Hyper Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Charm.WiggleHyperDice" ng-change="UpdateCharmXP()" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <hr />
+                    <strong>Total Dice</strong><br />
+                    <strong style="font-size:16px">
+                        <span ng-show="Char.Charm.RegularDice + Char.Charm.RegHyperDice > 0" class="text text-success">{{Char.Charm.RegularDice + Char.Charm.RegHyperDice}} Regular Dice</span>
+                        <span ng-show="Char.Charm.HardDice + Char.Charm.HardHyperDice > 0" class="text text-warning">{{Char.Charm.HardDice + Char.Charm.HardHyperDice}} Hard Dice</span>
+                        <span ng-show="Char.Charm.WiggleDice + Char.Charm.WiggleHyperDice > 0" class="text text-danger">{{Char.Charm.WiggleDice + Char.Charm.WiggleHyperDice}} Wiggle Dice</span>
+                    </strong>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <br /><br />
+
+    <div uib-accordion-group class="panel-info" heading="Command" is-open="true">
+        <section id="Command">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>{{Char.Command.SpentXP}} XP</h3>
+                    <hr />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <strong class="text text-success"> Regular Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Command.RegularDice" ng-change="UpdateCommandXP()" />
+                    <strong class="text text-warning">Hard Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Command.HardDice" ng-change="UpdateCommandXP()" />
+                    <strong class="text text-danger">Wiggle Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Command.WiggleDice" ng-change="UpdateCommandXP()" />
+                </div>
+                <div class="col-md-3">
+                    <strong class="text text-success"> Regular</strong><strong class="text text-primary"> Hyper Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Command.RegHyperDice" ng-change="UpdateCommandXP()" />
+                    <strong class="text text-warning">Hard</strong><strong class="text text-primary"> Hyper Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Command.HardHyperDice" ng-change="UpdateCommandXP()" />
+                    <strong class="text text-danger">Wiggle</strong><strong class="text text-primary"> Hyper Dice</strong>
+                    <input type="number" class="form-control" min="0" max="10" ng-model="Char.Command.WiggleHyperDice" ng-change="UpdateCommandXP()" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <hr />
+                    <strong>Total Dice</strong><br />
+                    <strong style="font-size:16px">
+                        <span ng-show="Char.Command.RegularDice + Char.Command.RegHyperDice > 0" class="text text-success">{{Char.Command.RegularDice + Char.Command.RegHyperDice}} Regular Dice</span>
+                        <span ng-show="Char.Command.HardDice + Char.Command.HardHyperDice > 0" class="text text-warning">{{Char.Command.HardDice + Char.Command.HardHyperDice}} Hard Dice</span>
+                        <span ng-show="Char.Command.WiggleDice + Char.Command.WiggleHyperDice > 0" class="text text-danger">{{Char.Command.WiggleDice + Char.Command.WiggleHyperDice}} Wiggle Dice</span>
+                    </strong>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</uib-accordion>

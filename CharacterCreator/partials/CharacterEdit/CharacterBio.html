@@ -1,0 +1,147 @@
+﻿<h2 class="text text-primary">Information</h2>
+<div class="row">
+    <div class="col-md-6">
+        <strong>Character Name</strong>
+        <input type="text" class="form-control" ng-model="Char.Name" />
+    </div>
+    <div class="col-md-6">
+        <strong>Description</strong>
+        <input type="text" class="form-control" ng-model="Char.Description" />
+    </div>
+</div>
+<hr />
+
+<h2 class="text text-primary">Experience Points</h2>
+<div class="row">
+    <div class="col-md-2">
+        <strong>Total XP:</strong>
+        <input type="text" readonly class="form-control" value="{{Char.StartingXP + Char.EarnedXP}}">
+    </div>
+    <div class="col-md-2">
+        <strong>Starting XP:</strong>
+        <input type="number" min="0" class="form-control" ng-model="Char.StartingXP" />
+    </div>
+    <div class="col-md-2">
+        <strong>Earned XP:</strong>
+        <input type="number" min="0" class="form-control" ng-model="Char.EarnedXP" />
+    </div>
+    <div class="col-md-2">
+        <strong>Per Session XP:</strong>
+        <input type="text" class="form-control" ng-model="Char.SessionXP" />
+        <button type="button" class="btn btn-large btn-info" ng-click="Char.EarnedXP = Char.EarnedXP + Char.SessionXP;"><i class="fa fa-plus"></i> Add XP</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <Strong>Show Floating XP Panel? </Strong>
+        <input type="checkbox" ng-model="status.ShowFloatingPanel" class="checkbox-inline" />
+    </div>
+</div>
+
+<hr />
+
+<h2 class="text text-primary">Willpower</h2>
+<br />
+<div class="row">
+    <div class="col-md-3">
+        <Strong>Base Will </Strong>
+        <input type="number" ng-model="Char.BaseWill" class="form-control" min="0" />
+    </div>
+    <div class="col-md-3">
+        <Strong>Current Willpower </Strong>
+        <input type="number" class="form-control" ng-model="Char.CurrentWill" min="0" />
+    </div>
+</div>
+<hr />
+
+<h2 class="text text-primary">Loyalties and Passions</h2>
+<br />
+
+<div class="row">
+    <div class="col-md-6">
+        <h3>Loyalties</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <strong>Unspent Loyalty</strong>
+        <div ng-show="Char.BaseWill - Char.LoyaltyTotal == 0" class="label label-info">{{Char.BaseWill - Char.LoyaltyTotal}}</div>
+        <div ng-show="Char.BaseWill - Char.LoyaltyTotal != 0" class="label label-danger">{{Char.BaseWill - Char.LoyaltyTotal}}</div>
+    </div>
+</div>
+
+<hr />
+
+<div class="row" ng-repeat="loyalty in Char.Loyalties">
+    <div class="col-md-3">
+        <strong>Name</strong>
+        <input type="text" class="form-control" ng-model="loyalty.Name">
+    </div>
+
+    <div class="col-md-3">
+        <strong>Value</strong>
+        <input type="number" ng-model="loyalty.Value" ng-blur="UpdateLoyalties()" class="form-control" />
+        <div class="input-group">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-success" ng-click="GainWillpower(loyalty.Value)"><i class="fa fa-plus"></i> Gain Willpower</button>
+                <button type="button" class="btn btn-danger" ng-click="LoseWillpower(loyalty.Value)"><i class="fa fa-minus"></i> Lose Willpower</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <button type="button" class="btn btn-danger" style="margin-top:20px" ng-click="DeleteLoyalty(loyalty)" VerticalAlignment="center"><i class="fas fa-trash-alt"></i></button>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <button type="button" class="btn btn-success" ng-click="NewLoyalty()"><i class="fa fa-plus"></i> New Loyalty</button>
+    </div>
+</div>
+
+<br />
+
+<div class="row">
+    <div class="col-md-6">
+        <h3>Passions</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <strong>Unspent Passion</strong>
+        <div ng-show="Char.BaseWill - Char.PassionTotal == 0" class="label label-info">{{Char.BaseWill - Char.PassionTotal}}</div>
+        <div ng-show="Char.BaseWill - Char.PassionTotal != 0" class="label label-danger">{{Char.BaseWill - Char.PassionTotal}}</div>
+    </div>
+</div>
+
+<div class="row" ng-repeat="passion in Char.Passions">
+    <div class="col-md-3">
+        <strong>Name</strong>
+        <input type="text" class="form-control" ng-model="passion.Name">
+    </div>
+    <div class="col-md-3">
+        <strong>Value</strong>
+        <input type="number" ng-model="passion.Value" ng-blur="UpdatePassions()" class="form-control" min="0" max="Char.BaseWill" />
+        <div class="input-group">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-success" ng-click="GainWillpower(passion.Value)"><i class="fa fa-plus"></i> Gain Willpower</button>
+                <button type="button" class="btn btn-danger" ng-click="LoseWillpower(passion.Value)"><i class="fa fa-minus"></i> Lose Willpower</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <button type="button" class="btn btn-danger" style="margin-top:20px" ng-click="DeletePassion(passion)" VerticalAlignment="center"><i class="fas fa-trash-alt"></i></button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <button type="button" class="btn btn-success" ng-click="NewPassion()"><i class="fa fa-plus"></i> New Passion</button>
+    </div>
+</div>

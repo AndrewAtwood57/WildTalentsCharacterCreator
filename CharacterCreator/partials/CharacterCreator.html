@@ -1,0 +1,38 @@
+﻿<script>
+    $().ready(function() {
+        var $scrollingDiv = $("#scrollingDiv");
+
+        $(window).scroll(function(){
+            $scrollingDiv
+                .stop()
+                .animate({"marginTop": ($(window).scrollTop() )}, "slow" );
+        });
+    });
+</script>
+
+<div id="scrollingDiv" style="position:absolute" ng-show="status.ShowFloatingPanel == true">
+    <div class="jumbotron border border-secondary">
+        <strong>Experience Remaining: </strong>{{Char.StartingXP + Char.EarnedXP - Char.SpentXP}}
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <img src="../Images/WildTalentsLogo.png" max-width="25%" max-height="25%" />
+        </div>
+    </div>
+
+    <uib-accordion close-others="false">
+        <div uib-accordion-group class="panel-default" heading="Bio" is-open="status.isFirstOpen">
+            <div ng-include='"partials/CharacterEdit/CharacterBio.html"'></div>
+        </div>
+
+        <div uib-accordion-group class="panel-default" heading="Characteristics">
+            <div ng-include='"partials/CharacterEdit/Characteristics.html"'></div>
+        </div>
+    </uib-accordion>
+
+    
+</div>
